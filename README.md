@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Meztal App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Decisions 
 
-In the project directory, you can run:
+I decided to create one component for each page requested, Login.js, ProfileList.js and ProfileDetail.js,
+then use the routing system from `react-router-dom` to navigate to those pages.
 
-### `npm start`
+I had trouble implementing the clickable list items with the router, so I decided a different
+approach with saving a selected user state, it is not the cleanest code, I know, but it works as expected within the time limit.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Login.js uses `react-hook-form` to validate the form inputs and then submit them on a callback. It automatically prevents the user from submitting the form if there are validation errors.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I decided to use the Pokemon API and get the resources with Fetch API.
 
-### `npm test`
+I decided not to handle errors from fetching resources since they automatically pop on the console if there is any.
+But I did handle the case in which there is no data to be shown within react.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I decided to use App.css for the custom style classes because it is a small proyect and it has a few custom styles that can be worked within one file.
 
-### `npm run build`
+More information on the packages used on the project:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `bootstrap and react-bootstrap`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+These packages are used to style the application. Although react can be used only with bootstrap, some style classes that work with scripts will not work, in that case react-bootstrap is needed. Regarding style, they can be used interchangebily as react-bootstrap wraps bootstrap clases within react components.
+Package links: [bootstrap](https://getbootstrap.com/) , [react-bootstrap](https://react-bootstrap.github.io/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `react-router-dom`
 
-### `npm run eject`
+This package is used to add navigation and routing to the app.
+Package link: [react-router-dom](https://reactrouter.com/en/main) 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `react-hook-form`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The best form hook ever for react, Literally. It was the winner of 2020 GitNation React OS Award for the category of Productivity Booster. I'm still no expert but is very lightweight and easy to use.
+More information at [react-hook-form](https://react-hook-form.com/) 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Based on `Create React App` structure. With the additional files for the project:
+`Login.js`, `ProfileList.js`, `ProfileDetail.js` under `components` folder and an `assets` folder for pictures.
 
-## Learn More
+```
+meztal-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── components
+        ├── Login.js
+        ├── ProfileList.js
+        ├── ProfileDetail.js
+    ├── assets
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── setupTests.js
+``` 
+**Note: I'm not using anything related to PWA, like service worker and manifest files, nor tests ...yet**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deploy Steps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Run `npm run build` to build your app and make a deployable package
+2. Choose your server, for example Node [serve](https://github.com/vercel/serve) 
+    - To install and build the Node server run: `npm install -g serve` then `serve -s build` within the project folder
+    - You can also use the following comand to serve a specific proyect folder `serve project-name/` 
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

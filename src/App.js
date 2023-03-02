@@ -14,8 +14,7 @@ function App() {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="me-auto">
-            <Link className="nav-link" to="/"> Home </Link> {/* This is a react-router-dom element */}
-            <Nav.Link href="#">Back</Nav.Link> {/* This is a react-bootstrap element */}
+            <Link className="nav-link" to="/"> Home </Link> 
           </Nav>
         </Container>
       </Navbar>
@@ -23,7 +22,6 @@ function App() {
 
       <Routes>
           <Route path="/" element={<Login />} />
-
           <Route path="/list" element={<ProfileList/> }/>
       </Routes>
     </>
