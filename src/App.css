@@ -1,6 +1,35 @@
-.App {
-  text-align: center;
+
+/* BLUE THEME */
+
+.bg-theme {
+  background-color: rgb(0 58 112);
 }
+
+.bg-theme-light {
+  background-color: rgba(61,125,202,0.5);
+}
+
+/* TEXT */
+
+.page-title {
+  text-shadow: 3px 2px 0px rgba(0,0,0,0.6);
+    color: yellow;
+}
+
+/* BUTTONS */
+
+.btn-form-custom{
+  font-weight: bold;
+  background-color: yellow;
+  box-shadow: 5px 5px 0px -1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 5px 5px 0px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 0px -1px rgba(0,0,0,0.75);
+}
+
+.btn-form-custom:hover{
+  background-color: gray;
+}
+
 
 .App-logo {
   height: 40vmin;

@@ -1,0 +1,36 @@
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
+const ProfileDetail = ({ pokemon, isUser }) => {
+    //PENDING IMPLEMENTATION
+    return (
+        <main role="main" className="">
+            <Col sm={12} md={8} className="bg-theme-light rounded m-3 p-4">
+                <div className="text-center">
+                        <Image src={pokemon.sprites.front_default} roundedCircle thumbnail width="100px" />
+                        <h3 className="text-center mb-2"> { isUser? localStorage.getItem("username"):""} </h3>
+                    </div>
+
+                    <div className="bg-theme rounded p-2">
+                        <div className="ms-1">
+                            <div><span style={{ fontWeight: 'bold' }}>Pokemon:</span> {pokemon.name} </div>
+                            <div><span style={{ fontWeight: 'bold' }}>Types: </span> 
+                                { pokemon.types.map((t,i,arr) => {
+                                        return i === arr.length - 1? <span key={i}> {t.type.name}</span>:<span key={i}> {t.type.name},</span>;
+                                })} 
+                            </div>
+                            <div><span style={{ fontWeight: 'bold' }}>Abilities: </span>
+                                { pokemon.abilities.map((a,i,arr) => {
+                                        return i === arr.length - 1? <span key={i}> {a.ability.name}</span>:<span key={i}> {a.ability.name},</span>;
+                                })} 
+                            </div>
+                        </div>
+                </div>
+            </Col>
+        </main>
+    )
+
+}
+
+export default ProfileDetail;
